@@ -1,5 +1,5 @@
-/* Altair Aero Engineering service worker (v1.26.1). Static files only: the app shell works offline; data calls (Supabase / Edge Functions) are never cached. */
-const VERSION = 'altair-aero-1.26.1';
+/* Altair Aero Engineering service worker (v1.26.2). Static files only: the app shell works offline; data calls (Supabase / Edge Functions) are never cached. */
+const VERSION = 'altair-aero-1.26.2';
 const SHELL = ["./", "index.html", "manifest.webmanifest", "icon.svg", "icon-192.png", "icon-512.png", "apple-touch-icon.png", "favicon.png", "logo-128.png", "logo-180.png", "logo-tb.png", "header-laptop.jpg", "header-phone.jpg"];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(VERSION).then(c => Promise.all(SHELL.map(u => c.add(new Request(u, { cache: 'reload' })).catch(() => null)))).then(() => self.skipWaiting()));
